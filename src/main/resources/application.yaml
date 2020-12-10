@@ -1,0 +1,21 @@
+event-flow:
+  correlation-id-name: TransactionId
+  available-topics-refresh-ms: 360000
+  available-topics-timeout-ms: 10000
+  retention-period-ms: 2592000000
+  delete-schedule-ms: 10000
+  source-topics-filter-regex: integration.site-[0-9]+$
+  source-topics:
+    - integration.move-response
+    - integration.success
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, info, loggers
+server:
+  port: 7025

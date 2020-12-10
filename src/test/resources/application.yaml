@@ -1,0 +1,22 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+event-flow:
+  correlation-id-name: CorrelationId
+  available-topics-refresh-ms: 360000
+  available-topics-timeout-ms: 10000
+  retention-period-ms: 6000000
+  delete-schedule-ms: 10000
+  source-topics-filter-regex: integration.site-[0-9]+$
+  source-topics:
+    - integration.move-response
+    - integration.success
+
+kafka:
+  application.id: EventFlow
+  client.id: event-flow-test
+  bootstrap.servers: 172.20.20.20:9092
+  schema.registry.url: http://172.20.20.20:8081
+  security.protocol: PLAINTEXT
+  enable.idempotence: false
